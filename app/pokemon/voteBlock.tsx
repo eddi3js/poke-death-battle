@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { getPokemonById } from "../../server/pokemon";
 import InfoModal from "../../components/pokemon/infoModal";
+import { use } from "react";
 
-export default async function VoteBlock({ id }: { id: number }) {
-  const pokemon = await getPokemonById(id);
+export default function VoteBlock({ id }: { id: number }) {
+  const pokemon = use(getPokemonById(id));
   return (
     <>
       <div

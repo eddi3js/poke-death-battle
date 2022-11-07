@@ -1,7 +1,7 @@
 import PokemonDetails from "./details";
 import { Root } from "../../server/pokemon";
 
-export default async function InfoModal({
+export default function InfoModal({
   pokemon,
   modalId,
 }: {
