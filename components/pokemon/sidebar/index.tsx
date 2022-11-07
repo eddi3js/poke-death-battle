@@ -1,9 +1,10 @@
+import { use } from "react";
 import { getPokemonList, PokeListRaw } from "../../../server/pokemon";
 import { sortByName } from "../../../utils/sort";
 import SidebarAction from "./action";
 
-export default async function Sidebar() {
-  const res = await getPokemonList();
+export default function Sidebar() {
+  const res = use(getPokemonList());
   const pokemon = sortByName(res);
 
   return (
