@@ -11,9 +11,7 @@ export const getPokemonList = async (): Promise<PokeListRaw[]> => {
 };
 
 export const getPokemonByName = async (name: string): Promise<Root> => {
-  return (await (
-    await fetch("https://pokeapi.co/api/v2/pokemon/" + name)
-  ).json()) as Root;
+  return (await (await fetch(BASE_URL + name)).json()) as Root;
 };
 
 export const getPokemonById = async (
@@ -21,7 +19,7 @@ export const getPokemonById = async (
   cache?: CacheType
 ): Promise<Root> => {
   return (await (
-    await fetch("https://pokeapi.co/api/v2/pokemon/" + id, {
+    await fetch(BASE_URL + id, {
       cache: cache ?? "force-cache",
     })
   ).json()) as Root;
