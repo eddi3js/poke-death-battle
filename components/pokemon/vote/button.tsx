@@ -1,5 +1,5 @@
 "use client";
-import useToast from "../../utils/useToast";
+import useToast from "../../../utils/useToast";
 
 export default function VoteButton({ id }: { id: number }) {
   const { ToastMessage, fireMessage } = useToast();
@@ -13,13 +13,6 @@ export default function VoteButton({ id }: { id: number }) {
         Winner
       </button>
       <ToastMessage />
-      {/* <div className="toast">
-        <div className="alert alert-info">
-          <div>
-            <span>New message arrived.</span>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 }

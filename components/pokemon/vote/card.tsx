@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { Root } from "../../server/pokemon";
-import InfoModal from "./infoModal";
-import VoteButton from "./voteButton";
+import { Root } from "../../../server/pokemon";
+import InfoModal from "../infoModal";
+import VoteButton from "./button";
 
 export default function VoteBlock({ details }: { details: Root }) {
   const { id, name, sprites } = details;
