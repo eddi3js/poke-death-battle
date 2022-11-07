@@ -1,4 +1,4 @@
-import PokemonDetails from "../details";
+import PokemonDetails from "../../../../components/pokemon/details";
 import { getPokemonByName } from "../../../../server/pokemon";
 
 export default async function AllPokemon({

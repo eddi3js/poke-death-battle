@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { getPokemonById, Root } from "../../server/pokemon";
-import InfoModal from "./infoModal";
+import { getPokemonById } from "../../server/pokemon";
+import InfoModal from "../../components/pokemon/infoModal";
 
 export default async function VoteBlock({ id }: { id: number }) {
   const pokemon = await getPokemonById(id);
@@ -42,7 +42,6 @@ export default async function VoteBlock({ id }: { id: number }) {
           alt={pokemon.name}
           width={256}
           height={256}
-          layout="fixed"
           className="animate-fade-in"
         />
         <button className={`btn btn-primary px-10 text-secondary`}>

@@ -1,8 +1,6 @@
-import Image from "next/image";
-import { use } from "react";
-import { getPokemonById, Root } from "../server/pokemon";
 import { getRandomPokemonIds } from "../server/randomIds";
 import VoteBlock from "./pokemon/voteBlock";
+
 export default function Home() {
   const pokeIds = getRandomPokemonIds(2);
 

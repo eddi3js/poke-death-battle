@@ -1,5 +1,5 @@
+import PokemonDetails from "./details";
 import { Root } from "../../server/pokemon";
-import PokemonDetails from "./(details)/details";
 
 export default async function InfoModal({
   pokemon,

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { use } from "react";
-import { getPokemonList, PokeListRaw } from "../../../server/pokemon";
+import { getPokemonList, PokeListRaw } from "../../server/pokemon";
 
 export default function Sidebar() {
   const pokeList = use(getPokemonList());

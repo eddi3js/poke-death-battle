@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Ability, Form, Mfe, Root } from "../../../server/pokemon";
+import { Ability, Form, Mfe, Root } from "../../server/pokemon";
 
 interface PokemonDetailsProps extends Root {
   from?: "page" | "modal";
@@ -27,7 +27,6 @@ export default function PokemonDetails({
           alt={name}
           width={size}
           height={size}
-          layout="fixed"
           className="animate-fade-in absolute m-0 right-0 -top-20"
         />
 
