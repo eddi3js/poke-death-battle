@@ -9,3 +9,6 @@ body {
 p {
   @apply my-2;
 }
+.prose {
+  max-width: none;
+}

@@ -17,7 +17,7 @@ export default function Navigation() {
           <Link href="/pokemon">Details</Link>
         </li>
         <li>
-          <Link href="/">Vote Results</Link>
+          <Link href="/results">Vote Results</Link>
         </li>
       </ul>
       <div className="flex-none gap-2">
