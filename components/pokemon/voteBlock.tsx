@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Root } from "../../server/pokemon";
 import InfoModal from "./infoModal";
+import VoteButton from "./voteButton";
 
 export default function VoteBlock({ details }: { details: Root }) {
   const { id, name, sprites } = details;
@@ -41,9 +42,7 @@ export default function VoteBlock({ details }: { details: Root }) {
           height={256}
           className="animate-fade-in"
         />
-        <button className={`btn btn-primary px-10 text-secondary`}>
-          Winner
-        </button>
+        <VoteButton id={id} />
       </div>
 
       <InfoModal pokemon={details} modalId={`modal-details-${name}`} />
