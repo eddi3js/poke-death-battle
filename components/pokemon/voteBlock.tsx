@@ -1,24 +1,20 @@
 import Image from "next/image";
-import { getPokemonById } from "../../server/pokemon";
-import InfoModal from "../../components/pokemon/infoModal";
-import { use } from "react";
+import { Root } from "../../server/pokemon";
+import InfoModal from "./infoModal";
 
-export default function VoteBlock({ id }: { id: number }) {
-  const pokemon = use(getPokemonById(id));
+export default function VoteBlock({ details }: { details: Root }) {
+  const { id, name, sprites } = details;
   return (
     <>
-      <div
-        className={`flex flex-col items-center transition-opacity`}
-        key={pokemon.id}
-      >
+      <div className={`flex flex-col items-center transition-opacity`} key={id}>
         <h2 className="text-xl flex flex-row gap-2 text-center capitalize mt-[-0.5rem] text-secondary">
-          {pokemon.name}{" "}
+          {name}{" "}
           <div
             className="tooltip tooltip-info"
             data-tip="Click for more details"
           >
             <label
-              htmlFor={`modal-details-${pokemon.name}`}
+              htmlFor={`modal-details-${name}`}
               className="hover:cursor-pointer hover:text-info"
             >
               <svg
@@ -39,8 +35,8 @@ export default function VoteBlock({ id }: { id: number }) {
           </div>
         </h2>
         <Image
-          src={pokemon.sprites.front_default}
-          alt={pokemon.name}
+          src={sprites.front_default}
+          alt={name}
           width={256}
           height={256}
           className="animate-fade-in"
@@ -50,7 +46,7 @@ export default function VoteBlock({ id }: { id: number }) {
         </button>
       </div>
 
-      <InfoModal pokemon={pokemon} modalId={`modal-details-${pokemon.name}`} />
+      <InfoModal pokemon={details} modalId={`modal-details-${name}`} />
     </>
   );
 }

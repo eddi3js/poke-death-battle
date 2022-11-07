@@ -16,9 +16,14 @@ export const getPokemonByName = async (name: string): Promise<Root> => {
   ).json()) as Root;
 };
 
-export const getPokemonById = async (id: number): Promise<Root> => {
+export const getPokemonById = async (
+  id: number,
+  cache?: CacheType
+): Promise<Root> => {
   return (await (
-    await fetch("https://pokeapi.co/api/v2/pokemon/" + id)
+    await fetch("https://pokeapi.co/api/v2/pokemon/" + id, {
+      cache: cache ?? "force-cache",
+    })
   ).json()) as Root;
 };
 
