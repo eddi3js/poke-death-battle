@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@planetscale/database": "^1.4.0",
+    "@tanstack/react-query": "^4.14.5",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
     "daisyui": "^2.38.1",
