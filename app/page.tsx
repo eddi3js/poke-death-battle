@@ -1,6 +1,7 @@
-import { getRandomPokemonIds } from "../server/randomIds";
-import VoteBlock from "../components/pokemon/vote/card";
-import { getPokemonById, Root } from "../server/pokemon";
+import { getRandomPokemonIds } from "../utils/randomIds";
+import VoteBlock from "./pokemon/components/vote/card";
+import { Root } from "../server/models/pokemon";
+import { getPokemonById } from "../server/queries/pokemon";
 
 const getPokemonsToVoteOn = async () => {
   const pokeIds = getRandomPokemonIds(2);

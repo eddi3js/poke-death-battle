@@ -1,4 +1,4 @@
-import Sidebar from "../../../components/pokemon/sidebar";
+import Sidebar from "./components/sidebar";
 
 export default function PokemonLayout({
   children,

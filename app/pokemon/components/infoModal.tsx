@@ -1,5 +1,5 @@
-import PokemonDetails from "./details";
-import { Root } from "../../server/pokemon";
+import PokemonDetails from "../details";
+import { Root } from "../../../server/models/pokemon";
 
 export default function InfoModal({
   pokemon,

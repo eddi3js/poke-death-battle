@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Root } from "../../../server/pokemon";
+import { Root } from "../../../../server/models/pokemon";
 import InfoModal from "../infoModal";
 import VoteButton from "./button";
 
@@ -35,13 +35,18 @@ export default function VoteBlock({ details }: { details: Root }) {
             </label>
           </div>
         </h2>
-        <Image
-          src={sprites.front_default}
-          alt={name}
-          width={256}
-          height={256}
-          className="animate-fade-in"
-        />
+        <label
+          htmlFor={`modal-details-${name}`}
+          className="hover:cursor-pointer"
+        >
+          <Image
+            src={sprites.other["official-artwork"].front_default}
+            alt={name}
+            width={256}
+            height={256}
+            className="animate-fade-in"
+          />
+        </label>
         <VoteButton id={id} />
       </div>
 

@@ -1,6 +1,7 @@
 import { use } from "react";
-import { getPokemonList, PokeListRaw } from "../../../server/pokemon";
-import { sortByName } from "../../../utils/sort";
+import { PokeListRaw } from "../../../../server/models/pokemon";
+import { getPokemonList } from "../../../../server/queries/pokemon";
+import { sortByName } from "../../../../utils/sort";
 import SidebarAction from "./action";
 
 export default function Sidebar() {

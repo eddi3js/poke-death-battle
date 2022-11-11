@@ -1,39 +1,9 @@
 export const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 export const POKEMON_LIMIT = 25;
 
-export const getPokemonList = async (): Promise<PokeListRaw[]> => {
-  const res = await fetch(`${BASE_URL}?limit=${POKEMON_LIMIT}`);
-  const data = await res.json();
-  return data.results.map(({ id, name }: Root) => ({
-    id,
-    name,
-  }));
-};
-
-export const getPokemonByName = async (name: string): Promise<Root> => {
-  return (await (await fetch(BASE_URL + name)).json()) as Root;
-};
-
-export const getPokemonById = async (
-  id: number,
-  cache?: CacheType
-): Promise<Root> => {
-  return (await (
-    await fetch(BASE_URL + id, {
-      cache: cache ?? "force-cache",
-    })
-  ).json()) as Root;
-};
-
-export interface PokeListing {
-  id: number;
-  name: string;
-  image: string;
-}
-
 export interface PokeListRaw extends Omit<PokeListing, "image"> {}
 
-type CacheType =
+export type CacheType =
   | "no-store"
   | "reload"
   | "no-cache"
@@ -59,6 +29,12 @@ export interface Root {
   stats: Stat[];
   types: Type[];
   weight: number;
+}
+
+export interface PokeListing {
+  id: number;
+  name: string;
+  image: string;
 }
 
 export interface Ability {
