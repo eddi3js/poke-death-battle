@@ -13,7 +13,7 @@ export default function InfoModal({
       <input type="checkbox" id={modalId} className="modal-toggle" />
       <label htmlFor={modalId} className="modal">
         <label className="modal-box realtive" htmlFor="">
-          <PokemonDetails from="modal" {...pokemon} />
+          <PokemonDetails {...pokemon} />
         </label>
       </label>
     </>
