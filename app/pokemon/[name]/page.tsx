@@ -1,7 +1,4 @@
-import {
-  getPokemonByName,
-  getPokemonList,
-} from "../../../server/queries/pokemon";
+import { getPokemonByName, getPokemonList } from "../../../server/pokemon";
 import PokemonDetails from "../details";
 import MobilePokemonNavigation from "./mobilePokemonNavigation";
 

@@ -1,11 +1,11 @@
-import db from "../config";
+import db from "./config";
 import {
   BASE_URL,
   CacheType,
   PokeListRaw,
   POKEMON_LIMIT,
   Root,
-} from "../models/pokemon";
+} from "./models/pokemon";
 
 export const getPokemonList = async (): Promise<PokeListRaw[]> => {
   const res = await fetch(`${BASE_URL}?limit=${POKEMON_LIMIT}`);
