@@ -21,8 +21,9 @@ export default async function Home() {
   const pokemon = await getPokemonsToVoteOn();
 
   return (
-    <div className="flex w-screen h-screen flex-col justify-center items-center">
-      <h1>Which Pokémon would win?</h1>
+    <div className="flex md:w-screen md:h-screen flex-col justify-center items-center">
+      <h1 className="text-center mt-4 md:mt-0">Which Pokémon would win?</h1>
+
       <div className="p-8 gap-8 flex justify-between items-center max-w-2xl flex-col md:flex-row animate-fade-in">
         {pokemon.map((p: Root, i: number) => {
           return (
