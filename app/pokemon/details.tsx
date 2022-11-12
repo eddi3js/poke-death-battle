@@ -15,13 +15,13 @@ export default function PokemonDetails({
 }: PokemonDetailsProps) {
   return (
     <>
-      <div className="flex flex-row space-x-5 mb-3">
+      <div className="flex flex-col md:flex-row md:space-x-5 mb-3">
         <Image
           src={sprites.other["official-artwork"].front_default}
           alt={name}
           width={150}
           height={150}
-          className={`animate-fade-in m-0`}
+          className={`animate-fade-in mt-0 md:m-0 self-center md:self-start`}
         />
         <div>
           <p className="font-bold text-secondary m-0">
