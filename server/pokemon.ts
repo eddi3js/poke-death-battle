@@ -1,4 +1,3 @@
-import db from "./config";
 import {
   BASE_URL,
   CacheType,
@@ -29,9 +28,4 @@ export const getPokemonById = async (
       cache: cache ?? "force-cache",
     })
   ).json()) as Root;
-};
-
-export const getVotes = async () => {
-  const query = "SELECT * FROM votes";
-  return await db(query);
 };
