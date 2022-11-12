@@ -53,7 +53,14 @@ export default function VoteBlock({
             className="animate-fade-in"
           />
         </label>
-        <VoteButton against={againstId} for={id} name={details.name} />
+        <VoteButton
+          votedAgainst={againstId}
+          votedFor={id}
+          pokemon={{
+            name: details.name,
+            spriteUrl: details.sprites.other["official-artwork"].front_default,
+          }}
+        />
       </div>
 
       <InfoModal pokemon={details} modalId={`modal-details-${name}`} />

@@ -19,17 +19,19 @@ export default async function handler(
 ) {
   const postData = JSON.parse(req.body);
 
-  if (!postData?.for || !postData?.against) {
+  if (!postData?.votedFor || !postData?.votedAgainst) {
     return res.status(400).send({ error: "Missing required param" });
   }
 
   const query =
-    "INSERT INTO votes (createdAt, votedFor, votedAgainst) VALUES (?, ?, ?)";
+    "INSERT INTO votes (createdAt, votedFor, votedAgainst, votedForName, spriteUrl) VALUES (?, ?, ?, ?, ?)";
 
   const params = [
     new Date().toISOString().slice(0, 19).replace("T", " "),
-    Number(postData.for),
-    Number(postData.against),
+    Number(postData.votedFor),
+    Number(postData.votedAgainst),
+    postData.name,
+    postData.spriteUrl,
   ];
   await db(query, params);
 

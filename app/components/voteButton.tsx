@@ -3,21 +3,26 @@ import { useRouter } from "next/navigation";
 import { useVote } from "../../pages/api/vote";
 
 interface VoteButtonProps {
-  for: number;
-  against: number;
-  name: string;
+  votedFor: number;
+  votedAgainst: number;
+  pokemon: {
+    name: string;
+    spriteUrl: string;
+  };
 }
 
 export default function VoteButton(props: VoteButtonProps) {
   const { refresh } = useRouter();
+  const {
+    votedFor,
+    votedAgainst,
+    pokemon: { spriteUrl, name },
+  } = props;
 
   const { vote, isLoading, isSuccess } = useVote(async () => {
     await fetch("/api/vote", {
       method: "POST",
-      body: JSON.stringify({
-        for: props.for,
-        against: props.against,
-      }),
+      body: JSON.stringify({ name, votedFor, votedAgainst, spriteUrl }),
     });
     refresh();
   });
