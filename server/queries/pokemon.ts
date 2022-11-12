@@ -31,13 +31,6 @@ export const getPokemonById = async (
   ).json()) as Root;
 };
 
-export const castVote = async (votedFor: number, votedAgainst: number) => {
-  const query =
-    "INSERT INTO votes (voted_for, voted_against, createdAt) VALUES (?, ?, ?)";
-  const params = [votedFor, votedAgainst, new Date().toISOString()];
-  return await db(query, params);
-};
-
 export const getVotes = async () => {
   const query = "SELECT * FROM votes";
   return await db(query);

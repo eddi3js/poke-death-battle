@@ -1,24 +1,62 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import {
+  MutationFunction,
+  UseMutateFunction,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 import type { NextApiRequest, NextApiResponse } from "next";
 import db from "../../server/config";
 
-type Data = {
-  name: string;
+type Response = string;
+type Error = {
+  error: string;
 };
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Response | Error>
 ) {
-  // get the param keys/values from the request
-  const q = req.query.params;
-  console.log("q :>> ", q);
+  const postData = JSON.parse(req.body);
 
-  // const query =
-  //   "INSERT INTO votes (voted_for, voted_against, createdAt) VALUES (?, ?, ?)";
+  if (!postData?.for || !postData?.against) {
+    return res.status(400).send({ error: "Missing required param" });
+  }
 
-  // const params = [votedFor, votedAgainst, new Date().toISOString()];
-  // await db(query, params);
+  const query =
+    "INSERT INTO votes (createdAt, votedFor, votedAgainst) VALUES (?, ?, ?)";
 
-  res.status(200);
+  const params = [
+    new Date().toISOString().slice(0, 19).replace("T", " "),
+    Number(postData.for),
+    Number(postData.against),
+  ];
+  await db(query, params);
+
+  return res.status(200).send("OK");
 }
+
+export const useVote = (
+  query: MutationFunction<unknown, void>
+): {
+  vote: UseMutateFunction<unknown, unknown, void, unknown>;
+  isLoading: boolean;
+  isSuccess: boolean;
+} => {
+  const queryClient = useQueryClient();
+  const {
+    mutate: vote,
+    isLoading,
+    isSuccess,
+  } = useMutation(["vote"], query, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(["vote"]);
+    },
+  });
+
+  return {
+    vote,
+    isLoading,
+    isSuccess,
+  };
+};

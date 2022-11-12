@@ -1,5 +1,6 @@
 import Navigation from "./navigation";
 import "./globals.css";
+import QueryWrapper from "./components/queryWrapper";
 
 export default function RootLayout({
   children,
@@ -15,7 +16,9 @@ export default function RootLayout({
       <head />
       <body cz-shortcut-listen="true">
         <Navigation />
-        <div className="prose">{children}</div>
+        <div className="prose">
+          <QueryWrapper>{children}</QueryWrapper>
+        </div>
       </body>
     </html>
   );

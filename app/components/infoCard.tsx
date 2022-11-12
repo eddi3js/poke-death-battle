@@ -1,9 +1,15 @@
 import Image from "next/image";
-import { Root } from "../../../../server/models/pokemon";
-import InfoModal from "../infoModal";
-import VoteButton from "./button";
+import { Root } from "../../server/models/pokemon";
+import InfoModal from "../pokemon/components/infoModal";
+import VoteButton from "./voteButton";
 
-export default function VoteBlock({ details }: { details: Root }) {
+export default function VoteBlock({
+  details,
+  againstId,
+}: {
+  details: Root;
+  againstId: number;
+}) {
   const { id, name, sprites } = details;
   return (
     <>
@@ -47,7 +53,7 @@ export default function VoteBlock({ details }: { details: Root }) {
             className="animate-fade-in"
           />
         </label>
-        <VoteButton id={id} />
+        <VoteButton against={againstId} for={id} name={details.name} />
       </div>
 
       <InfoModal pokemon={details} modalId={`modal-details-${name}`} />
