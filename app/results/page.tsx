@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PokeListing, Root } from "../../server/models/pokemon";
+import { PokeListing } from "../../server/models/pokemon";
 import { getPokemonList } from "../../server/pokemon";
 import { getResults } from "../../server/votes";
 

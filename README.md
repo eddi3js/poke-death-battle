@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Pokemon Death Battle
 
-## Getting Started
+We will be rebuilding this app in our bi-weekly **Js/React Deep Dive** meetings. Once completed, those who participated should have a base level understanding of:
 
-First, run the development server:
+- Next 13 (in `/app` directory)
+- Async Components
+- Installing and working with TailwindCss
+- Server-side data fetching in components
+- Client-side data fetching with Tanstack Query
+- Using Vercel for hosting
+- Creating/connecting to a Planetscale database
+- Integrating `@planetscale/database` JavaScript driver
+- Working with data to calculate results
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## What is the stack?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# pokemon-death-battle
-# poke-death-battle
+- [Next.js (v13)](https://nextjs.org/blog/next-13) // for app
+- [Tanstack Query](https://tanstack.com/query/v4) // for client-side data
+- [TailwindCss](https://tailwindcss.com/) // for making things look nice
+- [PlanetScale](https://planetscale.com/) // to persist data
+- [PlanetScale Serverless JS Driver](https://planetscale.com/docs/tutorials/planetscale-serverless-driver) // to make changes in the db
+- [Vercel](https://vercel.com/) // for hosting
