@@ -3,6 +3,15 @@ export const POKEMON_LIMIT = 25;
 
 export interface PokeListRaw extends Omit<PokeListing, "image"> {}
 
+export interface Votes {
+  id: string;
+  createdAt: string;
+  votedFor: number;
+  votedAgainst: number;
+  votedForName: string;
+  spriteUrl: string;
+}
+
 export type CacheType =
   | "no-store"
   | "reload"
