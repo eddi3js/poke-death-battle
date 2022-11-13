@@ -39,7 +39,7 @@ export default function VoteButton(props: VoteButtonProps) {
         disabled={isLoading}
         onClick={handleVote}
         className={`btn ${
-          isSuccess ? "btn-success text-white" : "btn-primary"
+          isSuccess ? "btn-success text-white" : "btn-primary text-white"
         } px-10 text-secondary ${isLoading ? "loading" : ""}`}
       >
         {isSuccess && (
@@ -58,7 +58,7 @@ export default function VoteButton(props: VoteButtonProps) {
             />
           </svg>
         )}{" "}
-        Vote for {props.name}
+        Vote for {name}
       </button>
     </>
   );
