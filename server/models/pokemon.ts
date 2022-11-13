@@ -57,6 +57,11 @@ export interface Ability2 {
   url: string;
 }
 
+export interface ListingResult {
+  name: string;
+  url: string;
+}
+
 export interface Form {
   name: string;
   url: string;

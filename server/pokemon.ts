@@ -1,18 +1,26 @@
 import {
   BASE_URL,
   CacheType,
-  PokeListRaw,
+  PokeListing,
   POKEMON_LIMIT,
   Root,
 } from "./models/pokemon";
 
-export const getPokemonList = async (): Promise<PokeListRaw[]> => {
+export const getPokemonList = async (
+  showImage?: boolean
+): Promise<PokeListing[]> => {
   const res = await fetch(`${BASE_URL}?limit=${POKEMON_LIMIT}`);
-  const data = await res.json();
-  return data.results.map(({ id, name }: Root) => ({
-    id,
-    name,
-  }));
+  const json = await res.json();
+  return json.results.map(({ url, name }: { url: string; name: string }) => {
+    const pokemonId = url.split("/")[6];
+    return {
+      id: pokemonId,
+      name,
+      ...(showImage && {
+        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`,
+      }),
+    };
+  });
 };
 
 export const getPokemonByName = async (name: string): Promise<Root> => {
