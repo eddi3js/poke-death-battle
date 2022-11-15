@@ -1,5 +1,5 @@
 export const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
-export const POKEMON_LIMIT = 25;
+export const POKEMON_LIMIT = 50;
 
 export interface PokeListRaw extends Omit<PokeListing, "image"> {}
 

@@ -17,7 +17,7 @@ export default function Sidebar() {
           return (
             <li
               key={p.name}
-              className="m-0 border-t hover:border-base-100 border-base-200/[0.3]"
+              className="m-0 capitalize border-t hover:border-base-100 border-base-200/[0.3]"
             >
               <SidebarAction name={p.name} />
             </li>
