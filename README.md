@@ -20,3 +20,6 @@ We will be rebuilding this app in our bi-weekly **Js/React Deep Dive** meetings.
 - [PlanetScale](https://planetscale.com/) `// to persist data`
 - [PlanetScale Serverless JS Driver](https://planetscale.com/docs/tutorials/planetscale-serverless-driver) `//to make changes in the db`
 - [Vercel](https://vercel.com/) `// for hosting`
+
+## Demo URL
+[Pokemon Death Battle](https://pokemon-battle.eddie.gg/)
