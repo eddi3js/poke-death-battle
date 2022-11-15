@@ -40,7 +40,11 @@ export default function Navigation() {
         </li>
       </ul>
 
-      <Link href="https://github.com/eddi3js/poke-death-battle" target="_blank">
+      <Link
+        className="mx-2"
+        href="https://github.com/eddi3js/poke-death-battle"
+        target="_blank"
+      >
         <svg
           height="32"
           aria-hidden="true"
