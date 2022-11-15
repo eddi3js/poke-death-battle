@@ -36,7 +36,7 @@ export default function Navigation() {
           <Link href="/pokemon">Details</Link>
         </li>
         <li>
-          <Link href="/results">Vote Results</Link>
+          <Link href="/vote-results">Vote Results</Link>
         </li>
       </ul>
 

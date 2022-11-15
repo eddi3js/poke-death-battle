@@ -1,13 +1,14 @@
 import Image from "next/image";
+import { use } from "react";
 import { PokeListing } from "../../server/models/pokemon";
 import { getPokemonList } from "../../server/pokemon";
 import { getResults } from "../../server/votes";
 
-export const revalidate = 3;
+export const revalidate = 1;
 
-export default async function VotingResults() {
-  const { data, totalVotes } = await getResults();
-  const pokemon = await getPokemonList(true);
+export default function VotingResults() {
+  const { data, totalVotes } = use(getResults());
+  const pokemon = use(getPokemonList(true));
 
   const votePercent = (pokemonId: number) => {
     const pokemon = data[pokemonId];
