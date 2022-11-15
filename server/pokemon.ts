@@ -9,9 +9,8 @@ import {
 export const getPokemonList = async (
   showImage?: boolean
 ): Promise<PokeListing[]> => {
-  const res = await fetch(`${BASE_URL}?limit=${POKEMON_LIMIT}`);
-  const json = await res.json();
-  return json.results.map(({ url, name }: { url: string; name: string }) => {
+  const res = await (await fetch(`${BASE_URL}?limit=${POKEMON_LIMIT}`)).json();
+  return res.results.map(({ url, name }: { url: string; name: string }) => {
     const pokemonId = url.split("/")[6];
     return {
       id: pokemonId,

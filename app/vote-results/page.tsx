@@ -27,10 +27,10 @@ export default function VotingResults() {
   });
 
   return (
-    <div className="flex flex-1 flex-col justify-center items-center h-full">
+    <div className="flex flex-col items-center justify-center flex-1 h-full">
       <h3>Voting Results</h3>
 
-      <table className="table table-compact w-full max-w-xl">
+      <table className="table w-full max-w-xl table-compact">
         <thead>
           <tr>
             <th>Avatar</th>

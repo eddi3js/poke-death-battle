@@ -1,18 +1,18 @@
 export default function Loading() {
   return (
-    <div className="mx-auto max-w-3xl">
-      <div className="flex animate-pulse flex-row h-full justify-start space-x-5">
-        <div className="bg-gray-300 w-28 h-28 rounded-md"></div>
-        <div className="flex flex-col space-y-3 flex-1">
-          <div className="w-full md:w-30 bg-gray-300 h-6 rounded-md"></div>
-          <div className="w-full md:w-48 bg-gray-300 h-4 rounded-md"></div>
-          <div className="w-full md:w-16 bg-gray-300 h-4 rounded-md"></div>
-          <div className="w-full md:w-56 bg-gray-300 h-4 rounded-md"></div>
+    <div className="max-w-3xl mx-auto">
+      <div className="flex flex-row justify-start h-full space-x-5 animate-pulse">
+        <div className="bg-gray-300 rounded-md w-28 h-28"></div>
+        <div className="flex flex-col flex-1 space-y-3">
+          <div className="w-full h-6 bg-gray-300 rounded-md md:w-30"></div>
+          <div className="w-full h-4 bg-gray-300 rounded-md md:w-48"></div>
+          <div className="w-full h-4 bg-gray-300 rounded-md md:w-16"></div>
+          <div className="w-full h-4 bg-gray-300 rounded-md md:w-56"></div>
         </div>
       </div>
-      <div className="flex animate-pulse flex-col space-y-3">
-        <div className="w-16 bg-gray-300 h-4 rounded-md mt-5"></div>
-        <div className="w-full bg-gray-300 h-24 rounded-md mt-5"></div>
+      <div className="flex flex-col space-y-3 animate-pulse">
+        <div className="w-16 h-4 mt-5 bg-gray-300 rounded-md"></div>
+        <div className="w-full h-24 mt-5 bg-gray-300 rounded-md"></div>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ export default function PokemonLayout({
         <Sidebar />
       </div>
       <div className="flex flex-col flex-1 p-8">
-        <div className="text-sm max-w-3xl mx-auto w-full">{children}</div>
+        <div className="w-full max-w-3xl mx-auto text-sm">{children}</div>
       </div>
     </div>
   );

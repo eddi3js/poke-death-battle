@@ -1,18 +1,17 @@
-import { use } from "react";
 import { PokeListRaw } from "../../../../server/models/pokemon";
 import { getPokemonList } from "../../../../server/pokemon";
 import { sortByName } from "../../../../utils/sort";
 import SidebarAction from "./action";
 
-export default function Sidebar() {
-  const res = use(getPokemonList());
+export default async function Sidebar() {
+  const res = await getPokemonList();
   const pokemon = sortByName(res);
 
   return (
-    <div className="flex flex-col w-48 border-r overflow-y-auto overflow-x-hidden">
+    <div className="flex flex-col w-48 overflow-x-hidden overflow-y-auto border-r">
       <h3 className="px-4 mt-4">All Pokemon</h3>
 
-      <ul className="menu menu-compact p-0">
+      <ul className="p-0 menu menu-compact">
         {pokemon.sort().map((p: PokeListRaw) => {
           return (
             <li

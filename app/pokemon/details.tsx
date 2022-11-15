@@ -15,7 +15,7 @@ export default function PokemonDetails({
 }: PokemonDetailsProps) {
   return (
     <>
-      <div className="flex flex-col md:flex-row md:space-x-5 mb-3">
+      <div className="flex flex-col mb-3 md:flex-row md:space-x-5">
         <Image
           src={sprites.other["official-artwork"].front_default}
           alt={name}
@@ -24,7 +24,7 @@ export default function PokemonDetails({
           className={`animate-fade-in mt-0 md:m-0 self-center md:self-start`}
         />
         <div>
-          <p className="font-bold text-secondary m-0">
+          <p className="m-0 font-bold text-secondary">
             Base Experience: {base_experience}
           </p>
           <p>
@@ -67,8 +67,8 @@ const ListData = ({
 
   return (
     <div className="flex flex-col">
-      <p className="font-bold mt-0 mb-1 text-secondary">{title}:</p>
-      <p className="flex mt-0 flex-row flex-wrap gap-1 text-xs capitalize">
+      <p className="mt-0 mb-1 font-bold text-secondary">{title}:</p>
+      <p className="flex flex-row flex-wrap gap-1 mt-0 text-xs capitalize">
         {data.map((d: Form | Mfe | Ability, index: number) => (
           <span key={`details-item-${name}-${index}`}>
             {listName(d)}

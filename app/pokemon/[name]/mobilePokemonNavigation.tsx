@@ -20,7 +20,7 @@ export default function MobilePokemonNavigation({
     <select
       onChange={handlePokemonChange}
       defaultValue={`/pokemon/${activePokemon}`}
-      className="select capitalize p-0 mb-8 md:hidden w-full select-bordered pl-2"
+      className="w-full p-0 pl-2 mb-8 capitalize select md:hidden select-bordered"
     >
       {list.map((o) => (
         <option key={`navigate-to-${o.name}`} value={`/pokemon/${o.name}`}>
