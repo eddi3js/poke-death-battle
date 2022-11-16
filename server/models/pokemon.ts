@@ -19,7 +19,7 @@ export type CacheType =
 export interface Root {
   abilities: Ability[];
   base_experience: number;
-  forms: Form[];
+  forms: Response[];
   game_indices: Index[];
   height: number;
   held_items: HeldItem[];
@@ -30,7 +30,7 @@ export interface Root {
   name: string;
   order: number;
   past_types: any[];
-  species: Species;
+  species: Response;
   sprites: Sprites;
   stats: Stat[];
   types: Type[];
@@ -43,35 +43,20 @@ export interface PokeListing {
   image: string;
 }
 
+interface Response {
+  name: string;
+  url: string;
+}
+
 export interface Ability {
-  ability: Ability2;
+  ability: Response;
   is_hidden: boolean;
   slot: number;
 }
 
-export interface Ability2 {
-  name: string;
-  url: string;
-}
-
-export interface ListingResult {
-  name: string;
-  url: string;
-}
-
-export interface Form {
-  name: string;
-  url: string;
-}
-
 export interface Index {
   game_index: number;
-  version: Version;
-}
-
-export interface Version {
-  name: string;
-  url: string;
+  version: Response;
 }
 
 export interface HeldItem {
@@ -79,50 +64,22 @@ export interface HeldItem {
   version_details: VersionDetail[];
 }
 
-export interface Item {
-  name: string;
-  url: string;
-}
+export interface Item extends Response {}
 
 export interface VersionDetail {
   rarity: number;
-  version: Version2;
-}
-
-export interface Version2 {
-  name: string;
-  url: string;
+  version: Response;
 }
 
 export interface Mfe {
-  move: Move;
+  move: Response;
   version_group_details: VersionGroupDetail[];
-}
-
-export interface Move {
-  name: string;
-  url: string;
 }
 
 export interface VersionGroupDetail {
   level_learned_at: number;
-  move_learn_method: MoveLearnMethod;
-  version_group: VersionGroup;
-}
-
-export interface MoveLearnMethod {
-  name: string;
-  url: string;
-}
-
-export interface VersionGroup {
-  name: string;
-  url: string;
-}
-
-export interface Species {
-  name: string;
-  url: string;
+  move_learn_method: Response;
+  version_group: Response;
 }
 
 export interface Sprites {
@@ -366,20 +323,10 @@ export interface Icons2 {
 export interface Stat {
   base_stat: number;
   effort: number;
-  stat: Stat2;
-}
-
-export interface Stat2 {
-  name: string;
-  url: string;
+  stat: Response;
 }
 
 export interface Type {
   slot: number;
-  type: Type2;
-}
-
-export interface Type2 {
-  name: string;
-  url: string;
+  type: Response;
 }
