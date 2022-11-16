@@ -4,8 +4,6 @@ import { PokeListing } from "../../server/models/pokemon";
 import { getPokemonList } from "../../server/pokemon";
 import { getResults } from "../../server/votes";
 
-export const revalidate = 1;
-
 export default function VotingResults() {
   const { data, totalVotes } = use(getResults());
   const pokemon = use(getPokemonList(true));
