@@ -28,32 +28,29 @@ export default function VotingResults() {
     <div className="flex flex-col items-center justify-center flex-1 h-full">
       <h3>Voting Results</h3>
 
-      <table className="table w-full max-w-xl table-compact">
-        <thead>
-          <tr>
-            <th>Avatar</th>
-            <th>Name</th>
-            <th align="center">Vote %</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orderedPokemon.map(({ name, image, id }: PokeListing) => (
-            <tr key={name}>
-              <td>
-                <Image
-                  alt={name}
-                  src={image}
-                  width={75}
-                  height={75}
-                  className="m-0"
-                />
-              </td>
-              <td>{name}</td>
-              <td align="center">{votePercent(id)}%</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="grid w-full grid-cols-1 gap-4 p-4 sm:grid-cols-2 md:grid-cols-5 xl:grid-cols-10 sm:p-0">
+        {orderedPokemon.map(({ name, image, id }: PokeListing, idx: number) => {
+          const medal =
+            idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : "";
+          return (
+            <div
+              key={`pokemon-place-${id}`}
+              className="relative flex flex-col items-center w-full p-4 rounded-md shadow-md"
+            >
+              <span className="absolute top-0 text-4xl left-2">{medal}</span>
+              <Image
+                alt={name}
+                src={image}
+                width={100}
+                height={100}
+                className="m-0"
+              />
+              <h4>{name}</h4>
+              <p>{votePercent(id)}%</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { POKEMON_LIMIT } from "../server/models/pokemon";
+import { POKEMON_LIMIT } from "./const";
 
 export const getRandomPokemonIds = (len?: number) => {
   const randomIds = new Set<number>();
