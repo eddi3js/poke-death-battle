@@ -3,6 +3,8 @@ import { use } from "react";
 import { PokeListing } from "../../server/models/pokemon";
 import { getPokemonList } from "../../server/pokemon";
 import { getResults } from "../../server/votes";
+import ResultsContainer, { PokemonWrapper } from "./container";
+import LayoutSwitcher from "./layout-switcher";
 
 export default function VotingResults() {
   const { data, totalVotes } = use(getResults());
@@ -25,19 +27,15 @@ export default function VotingResults() {
   });
 
   return (
-    <div className="flex flex-col items-center justify-center flex-1 h-full">
+    <div className="relative flex flex-col items-center justify-center flex-1 h-full">
       <h3>Voting Results</h3>
 
-      <div className="grid w-full grid-cols-1 gap-4 p-4 sm:grid-cols-2 md:grid-cols-5 xl:grid-cols-10 sm:p-0">
+      <LayoutSwitcher />
+
+      <ResultsContainer>
         {orderedPokemon.map(({ name, image, id }: PokeListing, idx: number) => {
-          const medal =
-            idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : "";
           return (
-            <div
-              key={`pokemon-place-${id}`}
-              className="relative flex flex-col items-center w-full p-4 rounded-md shadow-md"
-            >
-              <span className="absolute top-0 text-4xl left-2">{medal}</span>
+            <PokemonWrapper idx={idx} key={`pokemon-place-${id}`}>
               <Image
                 alt={name}
                 src={image}
@@ -45,12 +43,12 @@ export default function VotingResults() {
                 height={100}
                 className="m-0"
               />
-              <h4>{name}</h4>
-              <p>{votePercent(id)}%</p>
-            </div>
+              <h4 className="m-0 capitalize">{name}</h4>
+              <p className="m-0 text-2xl">{votePercent(id)}%</p>
+            </PokemonWrapper>
           );
         })}
-      </div>
+      </ResultsContainer>
     </div>
   );
 }
