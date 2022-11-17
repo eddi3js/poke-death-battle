@@ -4,7 +4,7 @@ import { Root } from "../server/models/pokemon";
 import { getPokemonById } from "../server/pokemon";
 
 const getPokemonsToVoteOn = async () => {
-  const pokeIds = getRandomPokemonIds(3);
+  const pokeIds = getRandomPokemonIds(2);
   const pokemon = await Promise.all(
     pokeIds.map(async (id) => {
       return await getPokemonById(id, "no-store");
